@@ -86,6 +86,7 @@ if (!empty($id)) {
     $type->lti_secureicon = '';
 
     $type->lti_clientid = null;
+    $type->lti_coursecategories = '';
 }
 
 $pageurl = new moodle_url('/mod/lti/typessettings.php');
@@ -122,7 +123,8 @@ if (lti_request_is_using_ssl() && !empty($type->lti_secureicon)) {
 }
 
 $form = new mod_lti_edit_types_form($pageurl,
-    (object)array('isadmin' => true, 'istool' => false, 'id' => $id, 'clientid' => $type->lti_clientid));
+    (object)array('isadmin' => true, 'istool' => false, 'id' => $id, 'clientid' => $type->lti_clientid,
+        'coursecategories' => $type->lti_coursecategories));
 
 if ($data = $form->get_data()) {
     $type = new stdClass();
@@ -145,6 +147,7 @@ if ($data = $form->get_data()) {
 
 $PAGE->set_title("$SITE->shortname: " . get_string('toolsetup', 'lti'));
 $PAGE->navbar->add(get_string('lti_administration', 'lti'), $CFG->wwwroot.'/'.$CFG->admin.'/settings.php?section=modsettinglti');
+$PAGE->requires->js_call_amd('mod_lti/coursecategory', 'init', array($type->lti_coursecategories));
 
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('toolsetup', 'lti'));

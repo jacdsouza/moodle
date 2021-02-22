@@ -602,6 +602,9 @@ $string['using_tool_configuration'] = 'Using tool configuration: ';
 $string['validurl'] = 'A valid URL must start with http(s)://';
 $string['viewsubmissions'] = 'View submissions and grading screen';
 
+$string['restricttocategory'] = 'Restrict to category';
+$string['restricttocategory_help'] = 'To restrict use of this external tool on all courses within a category, select course category / categories from the list.';
+
 // Deprecated since Moodle 3.9.
 $string['organizationid'] = 'Organisation ID';
 $string['organizationid_help'] = 'A unique identifier for this Moodle instance. Typically, the DNS name of the organisation is used.
