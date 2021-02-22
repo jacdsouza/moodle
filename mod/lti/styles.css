@@ -407,3 +407,26 @@
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+
+#modltitree {
+    border-radius: 4px;
+}
+
+#modltitree ul {
+    list-style: none;
+    position: relative;
+}
+
+#modltitree .treeview span {
+    padding: 0 4px 0;
+}
+
+#modltitree .treeview .parent::before {
+    content: url([[pix:t/expanded]]);
+    position: absolute;
+    left: -5px;
+}
+
+#modltitree .treeview .parent.myclose::before {
+    content: url([[pix:t/collapsed]]);
+}
